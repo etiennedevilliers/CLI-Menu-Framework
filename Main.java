@@ -19,7 +19,7 @@ public class Main {
         mainMenu.add(new SubMenu(fileMenu));
         mainMenu.add(new ExitItem());
 
-        mainMenu.run();
+        mainMenu.present();
     }
 }
 

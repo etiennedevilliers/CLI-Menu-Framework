@@ -21,7 +21,7 @@ public class Menu extends ArrayList<MenuItem> {
         }
     }
 
-    public MenuItemReturnValue run() {
+    public MenuItemReturnValue present() {
         int selectedItem = -1;
         MenuItemReturnValue returnValue;
         do {

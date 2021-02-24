@@ -10,7 +10,7 @@ public class SubMenu extends MenuItem {
 
     @Override
     public MenuItemReturnValue selected() {
-        menu.run();
+        menu.present();
         return MenuItemReturnValue.CONTINUE;
     }
 }
