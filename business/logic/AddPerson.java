@@ -23,6 +23,7 @@ public class AddPerson extends MenuItem {
         String surname = Helper.getStringFromUser("Surname: ");
         
         this.people.add(new Person(name, surname));
+        PeopleFactory.outputToFile("people.csv", people);
 
         return MenuItemReturnValue.CONTINUE;
     }
