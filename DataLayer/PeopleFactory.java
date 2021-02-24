@@ -36,7 +36,7 @@ public class PeopleFactory {
             
                 
                 for (Person person : people) {
-                    myWriter.write(String.format("%s\n", person.toLine()));
+                    myWriter.write(String.format("%s%n", person.toLine()));
                 }
 
                 myWriter.close();
