@@ -18,4 +18,11 @@ public class Helper {
         System.out.print(q);
         return sc.nextLine();
     }
+
+    public static Float getFloatFromUser(String q) {
+        @SuppressWarnings("resource")
+        Scanner sc = new Scanner(System.in);
+        System.out.print(q);
+        return Float.parseFloat(sc.nextLine());
+    }
 }
