@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
-import java.io.IOException; 
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class PeopleFactory {
     public static People loadFromFile(String fileName) {
@@ -31,17 +32,14 @@ public class PeopleFactory {
     public static void outputToFile(String fileName, People people) {
         try (FileWriter myWriter = new FileWriter(fileName)) {
             File myObj = new File(fileName);
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-            
-                
+            if (myObj.canWrite()) {                
                 for (Person person : people) {
                     myWriter.write(String.format("%s%n", person.toLine()));
                 }
 
                 myWriter.close();
             } else {
-                System.out.println("File already exists.");
+                System.out.println("Can't write to file.");
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
