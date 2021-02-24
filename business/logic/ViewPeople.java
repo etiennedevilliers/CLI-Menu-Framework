@@ -3,7 +3,7 @@ package business.logic;
 import java.util.List;
 
 import data.layer.Person;
-import MenuFramework.MenuItem;
+import implementation.layer.MenuItem;
 
 public class ViewPeople extends MenuItem {
     private List<Person> people;

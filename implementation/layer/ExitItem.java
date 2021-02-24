@@ -1,4 +1,4 @@
-package MenuFramework;
+package implementation.layer;
 
 public class ExitItem extends MenuItem {
     public ExitItem () {

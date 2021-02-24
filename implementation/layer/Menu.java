@@ -1,8 +1,8 @@
-package MenuFramework;
+package implementation.layer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import MenuFramework.MenuItem.MenuItemReturnValue;
+import implementation.layer.MenuItem.MenuItemReturnValue;
 
 public class Menu extends ArrayList<MenuItem> {
     private static final long serialVersionUID = 1L;

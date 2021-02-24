@@ -2,7 +2,7 @@ package business.logic;
 
 import data.layer.PeopleFactory;
 import data.layer.People;
-import MenuFramework.MenuItem;
+import implementation.layer.MenuItem;
 
 public class OutputToFile extends MenuItem {
     private People people;
