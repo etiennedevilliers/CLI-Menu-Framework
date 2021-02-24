@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
+import java.io.IOException; 
 
 public class PeopleFactory {
     public static People loadFromFile(String fileName) {
