@@ -3,7 +3,8 @@ package implementation.layer;;
 public abstract class MenuItem {
     public enum MenuItemReturnValue {
         EXIT,
-        CONTINUE
+        CONTINUE,
+        BACK
     }
     String title;
 

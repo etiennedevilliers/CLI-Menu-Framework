@@ -10,7 +10,7 @@ public class Main {
         Menu fileMenu = new Menu("File Handling Stuff");
         fileMenu.add(new OutputToFile(people));
         fileMenu.add(new LoadFromFile(people));
-        fileMenu.add(new ExitItem());
+        fileMenu.add(new ReturnItem());
 
 
         Menu mainMenu = new Menu("Main menu");

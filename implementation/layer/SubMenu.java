@@ -11,7 +11,6 @@ public class SubMenu extends MenuItem {
     @Override
     public MenuItemReturnValue selected() {
         menu.run();
-        
         return MenuItemReturnValue.CONTINUE;
     }
 }

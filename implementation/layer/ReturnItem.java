@@ -7,6 +7,6 @@ public class ReturnItem extends MenuItem {
 
     @Override
     public MenuItemReturnValue selected() {
-        return MenuItemReturnValue.EXIT;
+        return MenuItemReturnValue.BACK;
     }
 }

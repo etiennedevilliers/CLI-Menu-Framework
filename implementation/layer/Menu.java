@@ -21,15 +21,18 @@ public class Menu extends ArrayList<MenuItem> {
         }
     }
 
-    public void run() {
+    public MenuItemReturnValue run() {
         int selectedItem = -1;
+        MenuItemReturnValue returnValue;
         do {
             do {
                 selectedItem = getUserSelection();
             } while (selectedItem < 0 || selectedItem >= this.size());
-                
+            returnValue = this.get(selectedItem).selected();   
         } 
-        while (this.get(selectedItem).selected() == MenuItemReturnValue.CONTINUE);
+        while (returnValue == MenuItemReturnValue.CONTINUE);
+
+        return returnValue;
     }
 
     public int getUserSelection() {
