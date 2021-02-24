@@ -20,6 +20,8 @@ public class Main {
         mainMenu.add(new ExitItem());
 
         mainMenu.present();
+
+        asdasd
     }
 }
 
