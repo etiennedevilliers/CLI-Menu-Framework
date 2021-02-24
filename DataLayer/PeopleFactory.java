@@ -29,13 +29,11 @@ public class PeopleFactory {
     }
 
     public static void outputToFile(String fileName, People people) {
-
-        try {
+        try (FileWriter myWriter = new FileWriter(fileName)) {
             File myObj = new File(fileName);
             if (myObj.createNewFile()) {
                 System.out.println("File created: " + myObj.getName());
             
-                FileWriter myWriter = new FileWriter(fileName);
                 
                 for (Person person : people) {
                     myWriter.write(String.format("%s\n", person.toLine()));
