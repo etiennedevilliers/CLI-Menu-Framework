@@ -1,6 +1,6 @@
 package AppFunctions;
 
-import AppObject.Person;
+import DataLayer.Person;
 import MenuFramework.MenuItem;
 
 import java.util.List;

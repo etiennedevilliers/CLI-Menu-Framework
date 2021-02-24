@@ -1,4 +1,4 @@
-package AppObject;
+package DataLayer;
 
 public class Person {
     String name;

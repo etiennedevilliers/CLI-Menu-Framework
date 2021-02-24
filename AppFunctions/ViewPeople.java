@@ -2,7 +2,7 @@ package AppFunctions;
 
 import java.util.List;
 
-import AppObject.Person;
+import DataLayer.Person;
 import MenuFramework.MenuItem;
 
 public class ViewPeople extends MenuItem {
