@@ -8,7 +8,7 @@ import DataLayer.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Person> people = new ArrayList<Person>();
+        People people = PeopleFactory.loadFromFile("people.csv");
 
         Menu m = new Menu("Main menu");
 
