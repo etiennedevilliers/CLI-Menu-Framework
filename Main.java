@@ -7,17 +7,19 @@ public class Main {
     public static void main(String[] args) {
         People people = PeopleFactory.loadFromFile("people.csv");
 
-        Menu m = new Menu("Main menu");
-
-        m.add(new AddPerson(people));
-        m.add(new ViewPeople(people));
-        m.add(new OutputToFile(people));
-        m.add(new LoadFromFile(people));
+        Menu fileMenu = new Menu("File Handling Stuff");
+        fileMenu.add(new OutputToFile(people));
+        fileMenu.add(new LoadFromFile(people));
+        fileMenu.add(new ExitItem());
 
 
-        m.add(new ExitItem());
+        Menu mainMenu = new Menu("Main menu");
+        mainMenu.add(new AddPerson(people));
+        mainMenu.add(new ViewPeople(people));
+        mainMenu.add(new SubMenu(fileMenu));
+        mainMenu.add(new ExitItem());
 
-        m.run();
+        mainMenu.run();
     }
 }
 
