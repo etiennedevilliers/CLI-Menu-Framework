@@ -1,16 +1,18 @@
 package business.logic;
 
-import java.util.List;
 import data.layer.*;
 import business.extra.*;
 
 
 import implementation.layer.MenuItem;
 
+/**
+ * Business logic for adding users
+ */
 public class AddPerson extends MenuItem {
-    List<Person> people;
+    People people;
 
-    public AddPerson (List<Person> people) {
+    public AddPerson (People people) {
         super("Add Person");
         this.people = people;
     }

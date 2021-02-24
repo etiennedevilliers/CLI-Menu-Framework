@@ -5,6 +5,9 @@ import data.layer.PeopleFactory;
 import data.layer.People;
 import implementation.layer.MenuItem;
 
+/**
+ * Business logic for saving People to file.
+ */
 public class OutputToFile extends MenuItem {
     private People people;
 

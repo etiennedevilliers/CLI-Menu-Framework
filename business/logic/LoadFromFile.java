@@ -2,16 +2,17 @@ package business.logic;
 
 import business.extra.*;
 import data.layer.PeopleFactory;
-import data.layer.Person;
+import data.layer.People;
 import implementation.layer.MenuItem;
 
 
-import java.util.List;
-
+/**
+ * Business logic for Loading People from file.
+ */
 public class LoadFromFile extends MenuItem{
-    private List<Person> people;
+    private People people;
     
-    public LoadFromFile(List<Person> people) {
+    public LoadFromFile(People people) {
         super("Load from file");
         this.people = people;
     }

@@ -6,7 +6,16 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
 
+
+/**
+ * PeopleFactory loads/saves People to and from files
+ */
 public class PeopleFactory {
+    /**
+     * Loads People from specified file
+     * @param fileName specified file name
+     * @return People object containing data from file
+     */
     public static People loadFromFile(String fileName) {
         People people = new People();
         try {
@@ -28,6 +37,11 @@ public class PeopleFactory {
         return people;
     }
 
+    /**
+     * Output data in people to specified file name
+     * @param fileName file name
+     * @param people
+     */
     public static void outputToFile(String fileName, People people) {
         try (FileWriter myWriter = new FileWriter(fileName)) {
             File myObj = new File(fileName);

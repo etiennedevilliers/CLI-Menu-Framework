@@ -5,6 +5,9 @@ import java.util.List;
 import data.layer.Person;
 import implementation.layer.MenuItem;
 
+/**
+ * Business logic for viewing People
+ */
 public class ViewPeople extends MenuItem {
     private List<Person> people;
 

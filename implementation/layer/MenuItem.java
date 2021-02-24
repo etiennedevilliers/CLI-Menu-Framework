@@ -1,5 +1,8 @@
 package implementation.layer;;
 
+/**
+ * An Abstarct MenuItem. 
+ */
 public abstract class MenuItem {
     public enum MenuItemReturnValue {
         EXIT,
@@ -16,5 +19,9 @@ public abstract class MenuItem {
         return this.title;
     }
 
+    /**
+     * Code that will run when user selects this menu item
+     * @return MenuItemReturnValue
+     */
     public abstract MenuItemReturnValue selected();
 } 

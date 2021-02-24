@@ -4,16 +4,23 @@ import java.util.Scanner;
 
 import implementation.layer.MenuItem.MenuItemReturnValue;
 
+/**
+ * Menu object for the CLI
+ */
 public class Menu extends ArrayList<MenuItem> {
     private static final long serialVersionUID = 1L;
     
     String title;
 
+    /**
+     * Construct Menu
+     * @param title Title of menu
+     */
     public Menu(String title) {
         this.title = title;
     }
 
-    public void display() {
+    private void display() {
         System.out.println(this.title);
         int i = 0;
         for (MenuItem menuItem : this) {
@@ -21,6 +28,11 @@ public class Menu extends ArrayList<MenuItem> {
         }
     }
 
+
+    /**
+     * Present the menu to the user
+     * @return the last MenuItemReturnValue that was not CONTINUE
+     */
     public MenuItemReturnValue present() {
         int selectedItem = -1;
         MenuItemReturnValue returnValue;
@@ -35,7 +47,7 @@ public class Menu extends ArrayList<MenuItem> {
         return returnValue;
     }
 
-    public int getUserSelection() {
+    private int getUserSelection() {
         while (true) {
             try {
                 @SuppressWarnings("resource")
