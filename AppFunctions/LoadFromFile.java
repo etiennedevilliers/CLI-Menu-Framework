@@ -16,9 +16,15 @@ public class LoadFromFile extends MenuItem{
 
     @Override
     public MenuItemReturnValue selected() {
-        String fileName = Helper.getStringFromUser("File name: ");
+        String fileName = Helper.getStringFromUser("File name (people.csv): ");
         this.people.clear();
-        this.people.addAll(PeopleFactory.loadFromFile(fileName));
+
+        if (fileName.length() >= 0) {
+            this.people.addAll(PeopleFactory.loadFromFile(fileName));
+        } else {
+            this.people.addAll(PeopleFactory.loadFromFile("people.csv"));
+        }
+        
 
         return MenuItemReturnValue.CONTINUE;
     }
