@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
-import java.nio.file.Files;
 
 public class PeopleFactory {
     public static People loadFromFile(String fileName) {
@@ -36,8 +35,6 @@ public class PeopleFactory {
                 for (Person person : people) {
                     myWriter.write(String.format("%s%n", person.toLine()));
                 }
-
-                myWriter.close();
             } else {
                 System.out.println("Can't write to file.");
             }
