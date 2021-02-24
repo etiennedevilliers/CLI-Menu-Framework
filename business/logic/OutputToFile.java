@@ -15,7 +15,7 @@ public class OutputToFile extends MenuItem {
     @Override
     public MenuItemReturnValue selected() {
         String fileName = Helper.getStringFromUser("File name (people.csv): ");
-        if (fileName.length() >= 0) {
+        if (fileName.length() > 0) {
             PeopleFactory.outputToFile(fileName, this.people);
         } else {
             PeopleFactory.outputToFile("people.csv", this.people);

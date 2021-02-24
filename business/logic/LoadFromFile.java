@@ -19,7 +19,7 @@ public class LoadFromFile extends MenuItem{
         String fileName = Helper.getStringFromUser("File name (people.csv): ");
         this.people.clear();
 
-        if (fileName.length() >= 0) {
+        if (fileName.length() > 0) {
             this.people.addAll(PeopleFactory.loadFromFile(fileName));
         } else {
             this.people.addAll(PeopleFactory.loadFromFile("people.csv"));

@@ -7,7 +7,7 @@ public abstract class MenuItem {
     }
     String title;
 
-    public MenuItem(String title) {
+    protected MenuItem(String title) {
         this.title = title;
     }
 
