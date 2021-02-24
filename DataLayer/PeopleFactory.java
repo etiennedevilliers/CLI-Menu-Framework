@@ -2,6 +2,7 @@ package DataLayer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class PeopleFactory {
@@ -24,5 +25,28 @@ public class PeopleFactory {
             e.printStackTrace();
         }
         return people;
+    }
+
+    public static void outputToFile(String fileName, People people) {
+
+        try {
+            File myObj = new File(fileName);
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            
+                FileWriter myWriter = new FileWriter(fileName);
+                
+                for (Person person : people) {
+                    myWriter.write(String.format("%s\n", person.toLine()));
+                }
+
+                myWriter.close();
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
