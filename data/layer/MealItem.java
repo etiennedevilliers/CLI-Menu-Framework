@@ -1,7 +1,7 @@
 package data.layer;
 
 public class MealItem {
-    public int ID, count;
+    public int ID;
     public String itemName, description;
     public float pricePerUnit;
 
