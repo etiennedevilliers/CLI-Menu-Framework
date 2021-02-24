@@ -1,7 +1,7 @@
-package AppFunctions;
+package business.logic;
 
-import DataLayer.PeopleFactory;
-import DataLayer.Person;
+import data.layer.PeopleFactory;
+import data.layer.Person;
 import MenuFramework.MenuItem;
 
 import java.util.List;

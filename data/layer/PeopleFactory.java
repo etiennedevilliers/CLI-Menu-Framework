@@ -1,4 +1,4 @@
-package DataLayer;
+package data.layer;
 
 import java.io.File;
 import java.io.FileNotFoundException;

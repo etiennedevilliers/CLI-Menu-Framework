@@ -1,7 +1,7 @@
-package AppFunctions;
+package business.logic;
 
-import DataLayer.PeopleFactory;
-import DataLayer.People;
+import data.layer.PeopleFactory;
+import data.layer.People;
 import MenuFramework.MenuItem;
 
 public class OutputToFile extends MenuItem {

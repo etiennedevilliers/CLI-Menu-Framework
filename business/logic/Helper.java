@@ -1,4 +1,4 @@
-package AppFunctions;
+package business.logic;
 import java.util.Scanner;
 
 public class Helper {

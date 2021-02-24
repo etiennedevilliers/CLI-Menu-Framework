@@ -1,6 +1,6 @@
 import MenuFramework.*;
-import AppFunctions.*;
-import DataLayer.*;
+import business.logic.*;
+import data.layer.*;
 
 
 public class Main {

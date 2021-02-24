@@ -1,8 +1,8 @@
-package AppFunctions;
+package business.logic;
 
 import java.util.List;
 
-import DataLayer.Person;
+import data.layer.Person;
 import MenuFramework.MenuItem;
 
 public class ViewPeople extends MenuItem {
