@@ -1,4 +1,4 @@
-package data.layer;
+package data.generalClasses;
 
 public class MealItem {
     public int ID;

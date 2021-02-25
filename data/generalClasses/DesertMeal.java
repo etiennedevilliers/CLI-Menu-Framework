@@ -1,4 +1,4 @@
-package data.layer;
+package data.generalClasses;
 
 public class DesertMeal extends MealItem {
     public DesertMeal(int ID, String ItemName, String Description, float PricePerUnit) {
