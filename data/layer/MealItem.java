@@ -53,7 +53,7 @@ public class MealItem {
     }
 
     public String toLine(){
-        return String.format("%s,%s,%s,%s.%s", ID, itemName, description, pricePerUnit,getTypeString());
+        return String.format("%s,%s,%s,%s,%s", ID, itemName, description, pricePerUnit,getTypeString());
     }
 
     @Override
