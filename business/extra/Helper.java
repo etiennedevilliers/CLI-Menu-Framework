@@ -31,7 +31,7 @@ public class Helper {
             try {
                 @SuppressWarnings("resource")
                 Scanner sc = new Scanner(System.in); 
-                System.out.println(q);
+                System.out.print(q);
                 System.out.print(": ");
                 return sc.nextInt();
             } catch (Exception e) {
