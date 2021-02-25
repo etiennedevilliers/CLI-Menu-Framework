@@ -6,7 +6,9 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
 
-public class MealCollectionFactory {    
+public class MealCollectionFactory {   
+    public static String defaultFile = "mealItems.csv";
+    
     public static MealCollection loadFromFile(String fileName) {
         MealCollection meals = new MealCollection();
         try {
@@ -15,7 +17,7 @@ public class MealCollectionFactory {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 if (data.length() > 1) {
-                    meals.add(new MealItem(data));
+                    meals.add(MealItem.CreateFromData(data));
                 } 
             }
 
@@ -26,6 +28,10 @@ public class MealCollectionFactory {
             e.printStackTrace();
         }
         return meals;
+    }
+
+    public static MealCollection loadFromFile() {
+        return loadFromFile(defaultFile);
     }
 
     public static void outputToFile(String fileName, MealCollection meals) {
@@ -42,5 +48,9 @@ public class MealCollectionFactory {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    public static void outputToFile(MealCollection meals) {
+        outputToFile(defaultFile, meals);
     }
 }
