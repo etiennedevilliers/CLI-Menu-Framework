@@ -11,7 +11,7 @@ public class AddMealToSetMenu extends MenuItem {
     private MealCollection mealCollection;
 
     public AddMealToSetMenu (SetMenu setMenu, MealCollection mealCollection) {
-        super("AddMealToSetMenu");
+        super("Add Meal to Set Menu");
         this.setMenu = setMenu;
         this.mealCollection = mealCollection;
         

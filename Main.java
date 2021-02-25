@@ -16,7 +16,7 @@ public class Main {
         mainMenu.add(new AddMeal(meals));
         mainMenu.add(new ViewMeals(meals));
         mainMenu.add(new ViewSetMenus(setMenuCollection));
-        mainMenu.add(new CreateSetMenu(setMenuCollection));
+        mainMenu.add(new CreateSetMenu(setMenuCollection, meals));
         mainMenu.add(new EditSetMenu(setMenuCollection, meals));
         mainMenu.add(new ExitItem());
 
