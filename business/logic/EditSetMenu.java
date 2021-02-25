@@ -34,9 +34,12 @@ public class EditSetMenu extends MenuItem {
         Menu menu = new Menu(String.format("%s selected", setMenu));
 
         menu.add(new AddMealToSetMenu(setMenu, mealCollection));
+        menu.add(new RemoveMealFromSetMenu(setMenu, mealCollection));
         menu.add(new ReturnItem());
 
         menu.present();
+
+        SetMenuCollectionFactory.outputToFile(setMenuCollection);
 
         return MenuItemReturnValue.CONTINUE;
     }

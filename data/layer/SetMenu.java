@@ -9,7 +9,7 @@ public class SetMenu extends ArrayList<MealItem> {
     private static final long serialVersionUID = 1L;
 
     int ID;
-    String name;
+    public String name;
 
     public SetMenu(String line, MealCollection mc) { //line.split(",")
         List<String> items = Arrays.asList(line.split(","));
