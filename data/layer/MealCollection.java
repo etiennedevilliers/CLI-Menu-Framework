@@ -1,6 +1,5 @@
-package data.collectionClasses;
+package data.layer;
 
-import data.generalClasses.*;
 import java.util.ArrayList;
 
 public class MealCollection extends ArrayList<MealItem> {

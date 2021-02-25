@@ -1,8 +1,6 @@
-package data.collectionClasses;
+package data.layer;
 
 import java.util.ArrayList;
-
-import data.generalClasses.Booking;
 
 public class BookingCollection extends ArrayList<Booking> {
     private static final long serialVersionUID = 1L;

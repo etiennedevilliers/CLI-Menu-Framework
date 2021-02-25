@@ -1,8 +1,6 @@
 package business.logic;
 
-import data.factoryClasses.*;
-import data.generalClasses.*;
-import data.collectionClasses.*;
+import data.layer.*;
 import business.extra.*;
 
 import implementation.layer.MenuItem;

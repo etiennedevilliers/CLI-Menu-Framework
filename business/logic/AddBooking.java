@@ -1,9 +1,7 @@
 package business.logic;
 
 import business.extra.Helper;
-import data.collectionClasses.BookingCollection;
-import data.factoryClasses.BookingCollectionFactory;
-import data.generalClasses.Booking;
+import data.layer.*;
 import implementation.layer.MenuItem;
 import implementation.layer.MenuItem.MenuItemReturnValue;
 

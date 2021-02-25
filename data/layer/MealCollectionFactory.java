@@ -1,48 +1,45 @@
-package data.factoryClasses;
+package data.layer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
+import java.io.IOException;
 
-import data.collectionClasses.BookingCollection;
-import data.generalClasses.Booking;
-
-public class BookingCollectionFactory {
-    public static String defaultFile = "bookings.csv";
-
-    public static BookingCollection loadFromFile(String fileName) {
-        BookingCollection bookingCollection = new BookingCollection();
+public class MealCollectionFactory {   
+    public static String defaultFile = "mealItems.csv";
+    
+    public static MealCollection loadFromFile(String fileName) {
+        MealCollection meals = new MealCollection();
         try {
             File myObj = new File(fileName);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 if (data.length() > 1) {
-                    bookingCollection.add(new Booking(data));
+                    meals.add(MealItem.CreateFromData(data));
                 } 
             }
 
-            System.out.println("Bookings loaded");
+            System.out.println("Meals loaded");
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return bookingCollection;
+        return meals;
     }
 
-    public static BookingCollection loadFromFile() {
+    public static MealCollection loadFromFile() {
         return loadFromFile(defaultFile);
     }
 
-    public static void outputToFile(String fileName, BookingCollection bookingCollection) {
+    public static void outputToFile(String fileName, MealCollection meals) {
         try (FileWriter myWriter = new FileWriter(fileName)) {
             File myObj = new File(fileName);
             if (myObj.canWrite()) {                
-                for (Booking book : bookingCollection) {
-                    myWriter.write(String.format("%s%n", book.toLine()));
+                for (MealItem meal : meals) {
+                    myWriter.write(String.format("%s%n", meal.toLine()));
                 }
             } else {
                 System.out.println("Can't write to file.");
@@ -53,7 +50,7 @@ public class BookingCollectionFactory {
         }
     }
 
-    public static void outputToFile(BookingCollection bookingCollection) {
-        outputToFile(defaultFile, bookingCollection);
+    public static void outputToFile(MealCollection meals) {
+        outputToFile(defaultFile, meals);
     }
 }

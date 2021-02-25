@@ -1,4 +1,4 @@
-package data.generalClasses;
+package data.layer;
 
 /**
  * Client Object

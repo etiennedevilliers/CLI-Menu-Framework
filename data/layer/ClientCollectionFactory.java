@@ -1,11 +1,9 @@
-package data.factoryClasses;
+package data.layer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
-import data.generalClasses.*;
-import data.collectionClasses.*;
 import java.io.IOException;
 
 
