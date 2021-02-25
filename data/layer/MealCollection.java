@@ -20,6 +20,13 @@ public class MealCollection extends ArrayList<MealItem> {
         return high + 1;
     }
 
+    /**
+     * Returns a list of matching MealItems
+     * Example: allAdultMeals = this.getAllMatchingMealItems(AdultMeal.typeString);
+     * 
+     * @param typeString the typeString of the mea;
+     * @return 
+     */
     public ArrayList<MealItem> getAllMatchingMealItems(String typeString) {
         ArrayList<MealItem> mealItems = new ArrayList<MealItem>();
 
