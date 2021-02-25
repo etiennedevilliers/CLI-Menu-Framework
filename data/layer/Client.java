@@ -4,7 +4,7 @@ package data.layer;
  * Client Object
  */
 public class Client {
-    int ID;
+    public int ID;
     String name;
     String surname;
 

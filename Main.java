@@ -9,6 +9,7 @@ public class Main {
         MealCollection meals = MealCollectionFactory.loadFromFile();
         SetMenuCollection setMenuCollection = SetMenuCollectionFactory.loadFromFile(meals);
 
+        BookingCollection bookings = BookingCollectionFactory.loadFromFile();
 
         Menu mainMenu = new Menu("Main menu");
         mainMenu.add(new AddClient(people));
@@ -18,6 +19,7 @@ public class Main {
         mainMenu.add(new ViewSetMenus(setMenuCollection));
         mainMenu.add(new CreateSetMenu(setMenuCollection, meals));
         mainMenu.add(new EditSetMenu(setMenuCollection, meals));
+        mainMenu.add(new AddBooking(bookings));
         mainMenu.add(new ExitItem());
 
 

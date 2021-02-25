@@ -1,6 +1,6 @@
 package business.logic;
-import data.layer.ClientCollection;
-import data.layer.Client;
+
+import data.layer.*;
 import implementation.layer.MenuItem;
 
 /**
