@@ -37,7 +37,7 @@ public class SetMenu extends ArrayList<MealItem> {
 
     @Override
     public String toString(){
-        return this.name;
+        return String.format("%s. %s", ID, name);
 
     }
 

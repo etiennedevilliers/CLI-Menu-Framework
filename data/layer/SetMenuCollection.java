@@ -18,4 +18,13 @@ public class SetMenuCollection extends ArrayList<SetMenu>{
 
         return high + 1;
     }
+
+    public SetMenu getSetMenuFromID(int id) {
+        for (SetMenu setMenu : this) {
+            if (setMenu.ID == id) {
+                return setMenu;
+            }
+        }
+        return null;
+    }
 }
