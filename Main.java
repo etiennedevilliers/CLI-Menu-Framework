@@ -8,8 +8,7 @@ public class Main {
         ClientCollection people = ClientCollectionFactory.loadFromFile();
         MealCollection meals = MealCollectionFactory.loadFromFile();
         SetMenuCollection setMenuCollection = SetMenuCollectionFactory.loadFromFile(meals);
-
-        BookingCollection bookings = BookingCollectionFactory.loadFromFile();
+        BookingCollection bookings = BookingCollectionFactory.loadFromFile(setMenuCollection);
 
         Menu mainMenu = new Menu("Main menu");
         mainMenu.add(new AddClient(people));
@@ -19,7 +18,7 @@ public class Main {
         mainMenu.add(new ViewSetMenus(setMenuCollection));
         mainMenu.add(new CreateSetMenu(setMenuCollection, meals));
         mainMenu.add(new EditSetMenu(setMenuCollection, meals));
-        mainMenu.add(new AddBooking(bookings));
+        mainMenu.add(new AddBooking(bookings, setMenuCollection));
         mainMenu.add(new ExitItem());
 
 

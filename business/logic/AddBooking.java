@@ -2,8 +2,7 @@ package business.logic;
 
 import business.extra.Helper;
 import data.layer.*;
-import implementation.layer.MenuItem;
-import implementation.layer.MenuItem.MenuItemReturnValue;
+import implementation.layer.*;
 
 public class AddBooking extends MenuItem{
     public enum EventType{
@@ -27,18 +26,32 @@ public class AddBooking extends MenuItem{
     }
     
     BookingCollection bookingCollection;
+    SetMenuCollection setMenuCollection;
 
-    public AddBooking (BookingCollection bookingCollection) {
+    public AddBooking (BookingCollection bookingCollection, SetMenuCollection setMenuCollection) {
         super("Add Booking");
         this.bookingCollection = bookingCollection;
+        this.setMenuCollection = setMenuCollection;
     }
     
     @Override
     public MenuItemReturnValue selected() {
         int newID = bookingCollection.getUniqueID();
+        int id;
+        SetMenu setMenu = null;
         
         EventType event = Helper.getEventFromUser("Choose an Event: ");
-        SetMenu setMenu = ;
+
+        do {
+            System.out.println("Select a Set Menu: ");
+            for (SetMenu sm : setMenuCollection) {
+                System.out.println(String.format("\t%s", sm));
+            }
+
+            id = Helper.getIntFromUser("Set Menu ID: ");
+            setMenu = setMenuCollection.getSetMenuFromID(id);
+        } while (setMenu == null);
+
         String deco = Helper.getStringFromUser("Specify all Decorations: ");
 
         this.bookingCollection.add(new Booking(newID, event, setMenu, deco));

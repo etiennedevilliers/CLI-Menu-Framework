@@ -18,7 +18,7 @@ public class Booking {
         this.status = BookingStatus.Unconfirmed;
     }
 
-    public Booking(String line) {
+    public Booking(String line, SetMenuCollection setMenuCollection) {
         String[] items = line.split(",");
         this.ID = Integer.parseInt(items[0]);
 
@@ -28,7 +28,7 @@ public class Booking {
                 this.chosenEvent = eventItem;
             }
         }
-        this.chosenSetMenu = items[2];
+        this.chosenSetMenu = setMenuCollection.getSetMenuFromID(Integer.parseInt(items[2]));
         this.decorations = items[3];
 
         BookingStatus status[] = BookingStatus.values();
