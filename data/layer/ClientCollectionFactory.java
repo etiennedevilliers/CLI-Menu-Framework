@@ -10,21 +10,22 @@ import java.io.IOException;
 /**
  * PeopleFactory loads/saves People to and from files
  */
-public class PeopleFactory {
+public class ClientCollectionFactory {
+    public static String defaultFile = "clients.csv";
     /**
      * Loads People from specified file
      * @param fileName specified file name
      * @return People object containing data from file
      */
-    public static People loadFromFile(String fileName) {
-        People people = new People();
+    public static ClientCollection loadFromFile(String fileName) {
+        ClientCollection clientCollection = new ClientCollection();
         try {
             File myObj = new File(fileName);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 if (data.length() > 1) {
-                    people.add(new Person(data));
+                    clientCollection.add(new Client(data));
                 } 
             }
 
@@ -34,19 +35,27 @@ public class PeopleFactory {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        return people;
+        return clientCollection;
+    }
+
+    /**
+     * Loads People from defaultFile
+     * @return People object containing data from file
+     */
+    public static ClientCollection loadFromFile() {
+        return loadFromFile(defaultFile);
     }
 
     /**
      * Output data in people to specified file name
      * @param fileName file name
-     * @param people
+     * @param clientCollection
      */
-    public static void outputToFile(String fileName, People people) {
+    public static void outputToFile(String fileName, ClientCollection clientCollection) {
         try (FileWriter myWriter = new FileWriter(fileName)) {
             File myObj = new File(fileName);
             if (myObj.canWrite()) {                
-                for (Person person : people) {
+                for (Client person : clientCollection) {
                     myWriter.write(String.format("%s%n", person.toLine()));
                 }
             } else {
@@ -56,5 +65,13 @@ public class PeopleFactory {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Output data in people to defaultFile
+     * @param clientCollection
+     */
+    public static void outputToFile(ClientCollection clientCollection) {
+        outputToFile(defaultFile, clientCollection);
     }
 }

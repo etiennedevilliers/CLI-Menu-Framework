@@ -2,24 +2,25 @@ package business.logic;
 
 import java.util.List;
 
-import data.layer.Person;
+import data.layer.ClientCollection;
+import data.layer.Client;
 import implementation.layer.MenuItem;
 
 /**
  * Business logic for viewing People
  */
-public class ViewPeople extends MenuItem {
-    private List<Person> people;
+public class ViewClients extends MenuItem {
+    private ClientCollection clientCollection;
 
-    public ViewPeople (List<Person> people){
-        super("View People");
-        this.people = people;
+    public ViewClients (ClientCollection clientCollection){
+        super("View Clients");
+        this.clientCollection = clientCollection;
     }
 
     @Override
     public MenuItemReturnValue selected() {
         System.out.println("People: ");
-        for (Person person : people) {
+        for (Client person : clientCollection) {
             System.out.println(String.format("\t%s",person));
         }
 
