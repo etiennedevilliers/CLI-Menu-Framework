@@ -2,7 +2,7 @@ package data.layer;
 
 public class AdultMeal extends MealItem {
 
-    public AdultMeal(String ItemName, String Description, float PricePerUnit) {
-        super(ItemName, Description, PricePerUnit);
+    public AdultMeal(int ID, String ItemName, String Description, float PricePerUnit) {
+        super(ID, ItemName, Description, PricePerUnit);
     }    
 }

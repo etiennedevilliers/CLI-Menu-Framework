@@ -18,7 +18,9 @@ public class AddMeal extends MenuItem {
         String desc = Helper.getStringFromUser("Description: ");
         Float price = Helper.getFloatFromUser("Price Per Unit: ");
         
-        this.meals.add(new MealItem(name, desc, price));
+        int newID = this.meals.getUniqueID();
+        this.meals.add(new MealItem(newID, name, desc, price));
+        
         MealCollectionFactory.outputToFile("meals.csv", meals);
 
         return MenuItemReturnValue.CONTINUE;

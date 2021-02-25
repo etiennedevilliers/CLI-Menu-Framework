@@ -5,7 +5,8 @@ public class MealItem {
     public String itemName, description;
     public float pricePerUnit;
 
-    public MealItem(String itemName, String description, float pricePerUnit){
+    public MealItem(int ID, String itemName, String description, float pricePerUnit){
+        this.ID = ID;
         this.itemName = itemName;
         this.description = description;
         this.pricePerUnit = pricePerUnit;        
@@ -13,12 +14,13 @@ public class MealItem {
 
     public MealItem(String line){
         String[] items = line.split(",");
-        itemName = items[0];
-        description = items[1];
-        pricePerUnit = Float.parseFloat(items[2]);
+        ID = Integer.parseInt(items[0]);
+        itemName = items[1];
+        description = items[2];
+        pricePerUnit = Float.parseFloat(items[3]);
     }
 
     public String toLine(){
-        return String.format("%s,%s,%s", itemName, description, pricePerUnit);
+        return String.format("%s,%s,%s,%s", ID, itemName, description, pricePerUnit);
     }
 }
