@@ -1,5 +1,6 @@
 package data.layer;
 
+import java.net.IDN;
 import java.util.ArrayList;
 
 public class MealCollection extends ArrayList<MealItem> {
@@ -18,6 +19,15 @@ public class MealCollection extends ArrayList<MealItem> {
         };
 
         return high + 1;
+    }
+
+    public MealItem getMealItemFromID(int id) {
+        for (MealItem item :this) {
+            if (item.ID == id )
+            return item;
+        }
+
+        return null;
     }
 
     /**
