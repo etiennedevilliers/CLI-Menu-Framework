@@ -1,6 +1,8 @@
 package business.extra;
 import java.util.Scanner;
 
+import business.logic.AddBooking.EventType;
+
 /**
  * Helper function conatining extra methods
  * used on business.logic
@@ -26,6 +28,28 @@ public class Helper {
         return Float.parseFloat(sc.nextLine());
     }
 
+    public static EventType getEventFromUser(String q) {
+        while(true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print(q);
+    
+            int i = 0;
+            EventType event[] = EventType.values();
+            for(EventType eventItem: event) {            
+                System.out.println(i + ": " + eventItem.name());
+                i++;
+            }
+    
+            int index = sc.nextInt();
+    
+            for(EventType eventItem: event) {            
+                if(index == eventItem.ordinal()){
+                    return eventItem;
+                }
+            }
+        }
+    }
+
     public static int getIntFromUser(String q) {
         while (true) {
             try {
@@ -37,7 +61,6 @@ public class Helper {
             } catch (Exception e) {
                 System.out.println("Invalid selection. Try again.");
             }
-            
         }
     }
 }
