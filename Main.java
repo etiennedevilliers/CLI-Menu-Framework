@@ -15,7 +15,9 @@ public class Main {
         mainMenu.add(new ViewClients(people));
         mainMenu.add(new AddMeal(meals));
         mainMenu.add(new ViewMeals(meals));
+        mainMenu.add(new ViewSetMenus(setMenuCollection));
         mainMenu.add(new ExitItem());
+
 
         mainMenu.present();
     }
