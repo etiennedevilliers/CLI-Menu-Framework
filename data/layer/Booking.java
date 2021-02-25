@@ -40,6 +40,6 @@ public class Booking {
     }
 
     public String toLine(){
-        return String.format("%s,%s,%s,%s,%s", ID, chosenEvent.ordinal(), chosenSetMenu, decorations, status.ordinal());
+        return String.format("%s,%s,%s,%s,%s", ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal());
     }
 }
