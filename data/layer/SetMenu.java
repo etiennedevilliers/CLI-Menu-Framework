@@ -25,6 +25,11 @@ public class SetMenu extends ArrayList<MealItem> {
         }
     }
 
+    public SetMenu(int ID, String name) {
+        this.ID = ID;
+        this.name = name;
+    }
+
     public String toLine() {
         String buffer = String.format("%s,%s", ID, name);
         
