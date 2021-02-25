@@ -6,7 +6,7 @@ import data.layer.*;
 public class Main {
     public static void main(String[] args) {
         People people = PeopleFactory.loadFromFile("people.csv");
-        MealCollection meals = MealCollectionFactory.loadFromFile("meals.csv");
+        MealCollection meals = MealCollectionFactory.loadFromFile();
 
         Menu fileMenu = new Menu("File Handling Stuff");
         fileMenu.add(new OutputToFile(people));
@@ -18,6 +18,7 @@ public class Main {
         mainMenu.add(new ViewPeople(people));
         mainMenu.add(new SubMenu(fileMenu));
         mainMenu.add(new AddMeal(meals));
+        mainMenu.add(new ViewMeals(meals));
         mainMenu.add(new ExitItem());
 
         mainMenu.present();

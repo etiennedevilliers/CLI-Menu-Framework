@@ -25,4 +25,19 @@ public class Helper {
         System.out.print(q);
         return Float.parseFloat(sc.nextLine());
     }
+
+    public static int getIntFromUser(String q) {
+        while (true) {
+            try {
+                @SuppressWarnings("resource")
+                Scanner sc = new Scanner(System.in); 
+                System.out.println(q);
+                System.out.print(": ");
+                return sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Invalid selection. Try again.");
+            }
+            
+        }
+    }
 }
