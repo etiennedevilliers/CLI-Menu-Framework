@@ -1,7 +1,4 @@
 package business.logic;
-
-import java.util.List;
-
 import data.layer.ClientCollection;
 import data.layer.Client;
 import implementation.layer.MenuItem;

@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class SetMenu extends ArrayList<MealItem> {
-
+    private static final long serialVersionUID = 1L;
+    
     int ID;
     String name;
 

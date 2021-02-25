@@ -1,6 +1,5 @@
 package data.layer;
 
-import java.net.IDN;
 import java.util.ArrayList;
 
 public class MealCollection extends ArrayList<MealItem> {
