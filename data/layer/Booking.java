@@ -42,4 +42,10 @@ public class Booking {
     public String toLine(){
         return String.format("%s,%s,%s,%s,%s", ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal());
     }
+
+    @Override
+    public String toString(){
+        return String.format("%s. %s %s %s %s", ID, chosenEvent, chosenSetMenu.name, decorations, status);
+
+    }
 }

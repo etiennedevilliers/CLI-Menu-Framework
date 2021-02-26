@@ -4,7 +4,6 @@ import implementation.layer.FinishItem;
 import implementation.layer.Menu;
 import implementation.layer.MenuItem;
 import business.extra.Helper;
-import data.layer.MealItem;
 import data.layer.SetMenu;
 import data.layer.SetMenuCollection;
 import data.layer.SetMenuCollectionFactory;

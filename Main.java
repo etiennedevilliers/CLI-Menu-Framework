@@ -19,6 +19,7 @@ public class Main {
         mainMenu.add(new CreateSetMenu(setMenuCollection, meals));
         mainMenu.add(new EditSetMenu(setMenuCollection, meals));
         mainMenu.add(new AddBooking(bookings, setMenuCollection));
+        mainMenu.add(new ViewBookings(bookings));
         mainMenu.add(new ExitItem());
 
 
