@@ -28,9 +28,10 @@ public class Helper {
         return Float.parseFloat(sc.nextLine());
     }
 
+    @SuppressWarnings({"resource"}) 
     public static EventType getEventFromUser(String q) {
         while(true) {
-            @SuppressWarnings("resource")
+            
             Scanner sc = new Scanner(System.in);
             System.out.print(q);
     
@@ -45,12 +46,12 @@ public class Helper {
     
             for(EventType eventItem: event) {            
                 if(index == eventItem.ordinal()){
-                    @SuppressWarnings("resource")
                     return eventItem;
                 }
             }
         }
     }
+
 
     public static int getIntFromUser(String q) {
         while (true) {
