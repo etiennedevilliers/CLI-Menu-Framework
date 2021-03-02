@@ -10,14 +10,18 @@ public class Booking {
     public String decorations;
     public BookingStatus status;
     public Client client;
+    public int numberOfAdults;
+    public int numberOfKids;
 
-    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client){
+    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client, int numberOfAdults, int numberOfKids){
         this.ID = ID;
         this.chosenEvent = chosenEvent;
         this.chosenSetMenu = chosenSetMenu;
         this.decorations = decorations;
         this.status = BookingStatus.Unconfirmed;
         this.client = client;
+        this.numberOfAdults = numberOfAdults;
+        this.numberOfKids = numberOfKids;
     }
 
     public Booking(String line, SetMenuCollection setMenuCollection, ClientCollection clientCollection) {
@@ -41,10 +45,14 @@ public class Booking {
         }
 
         this.client = clientCollection.getClientFromID(Integer.parseInt(items[5]));
+
+        this.numberOfAdults = Integer.parseInt(items[6]);
+        this.numberOfAdults = Integer.parseInt(items[7]);
     }
 
     public String toLine(){
-        return String.format("%s,%s,%s,%s,%s,%s", ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID);
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s", 
+        ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID, numberOfAdults, numberOfKids);
     }
 
     @Override
