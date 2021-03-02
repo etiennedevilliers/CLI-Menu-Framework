@@ -39,6 +39,10 @@ public class Main {
         mainMenu.present();
     }
 
+    /**
+     * A Menu that displays generates a ClientMenu for each
+     * client that exists. Selecting a client simulates "login"
+     */
     static class LoginMenu extends MenuItem {
         public LoginMenu() {super("Login"); }
 
@@ -54,6 +58,9 @@ public class Main {
 		}
     }
 
+    /**
+     * A menu filled with client functions
+     */
     static class ClientMenu extends MenuItem {
         private Client client;
         public ClientMenu(Client client) {
