@@ -40,7 +40,7 @@ public class Main {
     }
 
     /**
-     * A Menu that displays generates a ClientMenu for each
+     * A Menu that generates a ClientMenu for each
      * client that exists. Selecting a client simulates "login"
      */
     static class LoginMenu extends MenuItem {
