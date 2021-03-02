@@ -20,8 +20,10 @@ public class AddClient extends MenuItem {
     public MenuItemReturnValue selected() {
         String name = Helper.getStringFromUser("Name: ");
         String surname = Helper.getStringFromUser("Surname: ");
+        String cellno = Helper.getStringFromUser("Cell Number: ");
+        String email = Helper.getStringFromUser("Email: ");
         int newID = clientCollection.getUniqueID();
-        this.clientCollection.add(new Client(newID, name, surname));
+        this.clientCollection.add(new Client(newID, name, surname,cellno,email));
         ClientCollectionFactory.outputToFile(clientCollection);
 
         return MenuItemReturnValue.CONTINUE;
