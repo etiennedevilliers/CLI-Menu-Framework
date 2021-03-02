@@ -15,4 +15,16 @@ public class BookingCollection extends ArrayList<Booking> {
 
         return high + 1;
     }
+
+    public ArrayList<Booking> getBookingsForClient(Client client) {
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+
+        for (Booking b : this) {
+            if (b.client.equals(client)) {
+                bookings.add(b);
+            }
+        }
+
+        return bookings;
+    }
 }

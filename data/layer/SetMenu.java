@@ -30,6 +30,22 @@ public class SetMenu extends ArrayList<MealItem> {
         this.name = name;
     }
 
+    public float calculateCost(int numberOfAdults, int numberOfKids) {
+        float total = 0;
+
+        for (MealItem mealItem : this) {
+            if (mealItem.getClass() == AdultMeal.class) {
+                total += mealItem.pricePerUnit * numberOfAdults;
+            } else if (mealItem.getClass() == KiddiesMeal.class) {
+                total += mealItem.pricePerUnit * numberOfKids;
+            } else {
+                total += mealItem.pricePerUnit * (numberOfAdults + numberOfKids);
+            }
+        }
+
+        return total;
+    }
+
     public String toLine() {
         String buffer = String.format("%s,%s", ID, name);
         

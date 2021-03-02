@@ -1,5 +1,6 @@
 import implementation.layer.*;
 import business.logic.*;
+import business.logic.AddBooking.BookingStatus;
 import business.logic.EditBookingStatus.UpdateBookingStatus;
 import data.layer.*;
 
@@ -63,9 +64,18 @@ public class Main {
 		@Override
 		public MenuItemReturnValue selected() {
             Menu menu = new Menu(String.format("Select action %s: ", client.name));
+
+            for (Booking b : bookings.getBookingsForClient(client)) {
+                if (b.status == BookingStatus.Unconfirmed) {
+                    menu.add(new MakePayment(b));
+                }
+            }
+
             menu.add(new AddBooking(bookings, setMenuCollection, client));
             menu.add(new ReturnItem());
             menu.present();
+
+            BookingCollectionFactory.outputToFile(bookings);
 			return MenuItemReturnValue.CONTINUE;
 		}
     }
