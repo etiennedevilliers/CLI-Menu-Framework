@@ -1,5 +1,6 @@
 import implementation.layer.*;
 import business.logic.*;
+import business.logic.EditBookingStatus.UpdateBookingStatus;
 import data.layer.*;
 
 
@@ -20,6 +21,7 @@ public class Main {
         mainMenu.add(new EditSetMenu(setMenuCollection, meals));
         mainMenu.add(new AddBooking(bookings, setMenuCollection));
         mainMenu.add(new ViewBookings(bookings));
+        mainMenu.add(new UpdateBookingStatus(bookings));
         mainMenu.add(new ExitItem());
 
 

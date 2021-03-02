@@ -47,6 +47,15 @@ public class Menu extends ArrayList<MenuItem> {
         return returnValue;
     }
 
+    public MenuItemReturnValue presentOnce() {
+        int selectedItem = -1;
+        do {
+            selectedItem = getUserSelection();
+        } while (selectedItem < 0 || selectedItem >= this.size());
+        return this.get(selectedItem).selected(); 
+
+    }
+
     private int getUserSelection() {
         while (true) {
             try {

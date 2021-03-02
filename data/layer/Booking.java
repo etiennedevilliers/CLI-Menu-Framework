@@ -5,10 +5,10 @@ import business.logic.AddBooking.*;
 public class Booking {
 
     public int ID;
-    EventType chosenEvent;
+    public EventType chosenEvent;
     public SetMenu chosenSetMenu;
     public String decorations;
-    BookingStatus status;
+    public BookingStatus status;
 
     public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations){
         this.ID = ID;
