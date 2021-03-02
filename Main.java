@@ -71,6 +71,7 @@ public class Main {
                 }
             }
 
+            menu.add(new ViewBookings(bookings.getBookingsForClient(client)));
             menu.add(new AddBooking(bookings, setMenuCollection, client));
             menu.add(new ReturnItem());
             menu.present();
