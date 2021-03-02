@@ -5,10 +5,10 @@ package data.layer;
  */
 public class Client {
     public int ID;
-    String name;
-    String surname;
-    String cellNo;
-    String email;
+    public String name;
+    public String surname;
+    public String cellNo;
+    public String email;
 
     public Client(int iD, String name, String surname, String cellNo, String email) {
         ID = iD;

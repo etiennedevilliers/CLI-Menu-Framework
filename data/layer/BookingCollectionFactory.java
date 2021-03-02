@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class BookingCollectionFactory {
     public static String defaultFile = "bookings.csv";
 
-    public static BookingCollection loadFromFile(String fileName, SetMenuCollection setMenuCollection) {
+    public static BookingCollection loadFromFile(String fileName, SetMenuCollection setMenuCollection, ClientCollection clientCollection) {
         BookingCollection bookingCollection = new BookingCollection();
         try {
             File myObj = new File(fileName);
@@ -17,7 +17,7 @@ public class BookingCollectionFactory {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
                 if (data.length() > 1) {
-                    bookingCollection.add(new Booking(data, setMenuCollection));
+                    bookingCollection.add(new Booking(data, setMenuCollection, clientCollection));
                 } 
             }
 
@@ -30,8 +30,8 @@ public class BookingCollectionFactory {
         return bookingCollection;
     }
 
-    public static BookingCollection loadFromFile(SetMenuCollection setMenuCollection) {
-        return loadFromFile(defaultFile, setMenuCollection);
+    public static BookingCollection loadFromFile(SetMenuCollection setMenuCollection, ClientCollection clientCollection) {
+        return loadFromFile(defaultFile, setMenuCollection, clientCollection);
     }
 
     public static void outputToFile(String fileName, BookingCollection bookingCollection) {

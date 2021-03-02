@@ -4,11 +4,11 @@ import implementation.layer.Menu;
 import implementation.layer.MenuItem;
 import implementation.layer.ReturnItem;
 import data.layer.BookingCollection;
+import data.layer.BookingCollectionFactory;
 import data.layer.Booking;
 
 public class UpdateBookingStatus extends MenuItem {
     private BookingCollection bookingCollection;
-    private boolean isClient;
 
     /**
      * Edit the Booking status of a booking.
@@ -28,6 +28,8 @@ public class UpdateBookingStatus extends MenuItem {
         }
         menu.add(new ReturnItem());
         menu.present();
+
+        BookingCollectionFactory.outputToFile(bookingCollection);
 
         return MenuItemReturnValue.CONTINUE;
     }

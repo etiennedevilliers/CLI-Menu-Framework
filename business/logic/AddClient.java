@@ -12,7 +12,7 @@ public class AddClient extends MenuItem {
     ClientCollection clientCollection;
 
     public AddClient (ClientCollection clientCollection) {
-        super("Add Client");
+        super("Register");
         this.clientCollection = clientCollection;
     }
     

@@ -27,11 +27,13 @@ public class AddBooking extends MenuItem{
     
     BookingCollection bookingCollection;
     SetMenuCollection setMenuCollection;
+    Client client;
 
-    public AddBooking (BookingCollection bookingCollection, SetMenuCollection setMenuCollection) {
+    public AddBooking (BookingCollection bookingCollection, SetMenuCollection setMenuCollection, Client client) {
         super("Add Booking");
         this.bookingCollection = bookingCollection;
         this.setMenuCollection = setMenuCollection;
+        this.client = client;
     }
     
     @Override
@@ -54,7 +56,7 @@ public class AddBooking extends MenuItem{
 
         String deco = Helper.getStringFromUser("Specify all Decorations: ");
 
-        this.bookingCollection.add(new Booking(newID, event, setMenu, deco));
+        this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client));
         BookingCollectionFactory.outputToFile(bookingCollection);
 
         return MenuItemReturnValue.CONTINUE;

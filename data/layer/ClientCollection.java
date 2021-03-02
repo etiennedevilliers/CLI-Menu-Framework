@@ -23,4 +23,13 @@ public class ClientCollection extends ArrayList<Client> {
 
         return high + 1;
     }
+
+    public Client getClientFromID(int id) {
+        for (Client client : this) {
+            if (client.ID == id) {
+                return client;
+            }
+        }
+        return null;
+    }
 }
