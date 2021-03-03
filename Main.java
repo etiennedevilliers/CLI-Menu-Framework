@@ -17,7 +17,7 @@ public class Main {
         
         Menu clientMenu = new Menu("Client Stuff");
         clientMenu.add(new AddClient(clientCollection));
-        clientMenu.add(new LoginMenu());
+        clientMenu.add(new RMenuItem( "Login", () -> { LoginMenu(); }));
         clientMenu.add(new ReturnItem());
 
         Menu adminMenu = new Menu("Admin Stuff");
@@ -39,52 +39,32 @@ public class Main {
         mainMenu.present();
     }
 
-    /**
-     * A Menu that generates a ClientMenu for each
-     * client that exists. Selecting a client simulates "login"
-     */
-    static class LoginMenu extends MenuItem {
-        public LoginMenu() {super("Login"); }
-
-		@Override
-		public MenuItemReturnValue selected() {
-            Menu menu = new Menu("Select user: ");
-            for (Client client : clientCollection) {
-                menu.add(new ClientMenu(client));
-            }
-            menu.presentOnce();
-
-			return MenuItemReturnValue.CONTINUE;
-		}
+    public static void LoginMenu() {
+        Menu menu = new Menu("Select user: ");
+        for (Client client : clientCollection) {
+            menu.add(new RMenuItem(
+                String.format("%s %s", client.name, client.surname),
+                () -> { ClientMenu(client); }
+            ));
+        }
+        menu.presentOnce();
     }
 
-    /**
-     * A menu filled with client functions
-     */
-    static class ClientMenu extends MenuItem {
-        private Client client;
-        public ClientMenu(Client client) {
-            super(String.format("%s %s", client.name, client.surname)); 
-            this.client = client;
+    public static void ClientMenu(Client client) {
+        Menu menu = new Menu(String.format("Select action %s: ", client.name));
+
+        for (Booking b : bookings.getBookingsForClient(client)) {
+            if (b.status == BookingStatus.Unconfirmed) {
+                menu.add(new MakePayment(b));
+            }
         }
 
-		@Override
-		public MenuItemReturnValue selected() {
-            Menu menu = new Menu(String.format("Select action %s: ", client.name));
+        menu.add(new ViewBookings(bookings.getBookingsForClient(client)));
+        menu.add(new AddBooking(bookings, setMenuCollection, client));
+        menu.add(new ReturnItem());
+        menu.present();
 
-            for (Booking b : bookings.getBookingsForClient(client)) {
-                if (b.status == BookingStatus.Unconfirmed) {
-                    menu.add(new MakePayment(b));
-                }
-            }
-
-            menu.add(new ViewBookings(bookings.getBookingsForClient(client)));
-            menu.add(new AddBooking(bookings, setMenuCollection, client));
-            menu.add(new ReturnItem());
-            menu.present();
-
-            BookingCollectionFactory.outputToFile(bookings);
-			return MenuItemReturnValue.CONTINUE;
-		}
+        BookingCollectionFactory.outputToFile(bookings);
     }
+
 }
