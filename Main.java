@@ -26,7 +26,6 @@ public class Main {
 
         Menu adminMenu = new Menu("Admin Stuff");
         adminMenu.add(new ViewBookings(bookings));
-        adminMenu.add(new UpdateBookingStatus(bookings));
         adminMenu.add(new ViewClients(clientCollection));
         adminMenu.add(new AddMeal(meals));
         adminMenu.add(new ViewMeals(meals));
