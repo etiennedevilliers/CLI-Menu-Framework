@@ -47,7 +47,7 @@ public class Booking {
         this.client = clientCollection.getClientFromID(Integer.parseInt(items[5]));
 
         this.numberOfAdults = Integer.parseInt(items[6]);
-        this.numberOfAdults = Integer.parseInt(items[7]);
+        this.numberOfKids = Integer.parseInt(items[7]);
     }
 
     public String toLine(){
@@ -57,7 +57,17 @@ public class Booking {
 
     @Override
     public String toString(){
-        return String.format("%s. %s %s %s %s %s %s", ID, client.name, client.surname, chosenEvent, chosenSetMenu.name, decorations, status);
+        return String.format("%s. %s %s %s %s %s Adults:%s Kids:%s %s", 
+            ID, 
+            client.name, 
+            client.surname, 
+            chosenEvent, 
+            chosenSetMenu.name, 
+            decorations,
+            numberOfAdults, 
+            numberOfKids, 
+            status    
+        );
 
     }
 }

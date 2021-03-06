@@ -23,7 +23,14 @@ public class MakePayment extends MenuItem {
             booking.numberOfKids
         );
 
-        Menu menu = new Menu(String.format("Total cost is %s", cost));
+        Menu menu;
+
+        if (booking.numberOfAdults + booking.numberOfKids >= 40) {
+            menu = new Menu(String.format("Total cost is %s, 15%% discount applied", cost));
+        } else {
+            menu = new Menu(String.format("Total cost is %s, 15%% discount not applied", cost));
+        }
+
         menu.add(new Confirm(booking));
         menu.add(new ReturnItem());
 
