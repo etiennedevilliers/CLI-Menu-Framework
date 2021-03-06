@@ -1,5 +1,7 @@
 package business.logic;
 
+import java.util.Date;
+
 import business.extra.Helper;
 import data.layer.*;
 import implementation.layer.*;
@@ -59,7 +61,9 @@ public class AddBooking extends MenuItem{
         int numberOfAdults = Helper.getIntFromUser("Number of Adults: ");
         int numberOfKids = Helper.getIntFromUser("Number of Kids: ");
 
-        this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client, numberOfAdults, numberOfKids));
+        Date date = Helper.getDateFromUser("Event date: ");
+
+        this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client, numberOfAdults, numberOfKids, date));
         BookingCollectionFactory.outputToFile(bookingCollection);
 
         return MenuItemReturnValue.CONTINUE;

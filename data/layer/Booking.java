@@ -1,5 +1,8 @@
 package data.layer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import business.logic.AddBooking.*;
 
 public class Booking {
@@ -12,8 +15,9 @@ public class Booking {
     public Client client;
     public int numberOfAdults;
     public int numberOfKids;
+    public Date date;
 
-    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client, int numberOfAdults, int numberOfKids){
+    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client, int numberOfAdults, int numberOfKids, Date date){
         this.ID = ID;
         this.chosenEvent = chosenEvent;
         this.chosenSetMenu = chosenSetMenu;
@@ -22,6 +26,7 @@ public class Booking {
         this.client = client;
         this.numberOfAdults = numberOfAdults;
         this.numberOfKids = numberOfKids;
+        this.date = date;
     }
 
     public Booking(String line, SetMenuCollection setMenuCollection, ClientCollection clientCollection) {
@@ -48,19 +53,28 @@ public class Booking {
 
         this.numberOfAdults = Integer.parseInt(items[6]);
         this.numberOfKids = Integer.parseInt(items[7]);
+        try {
+            this.date = new SimpleDateFormat("dd/MM/yyyy").parse(items[8]);   
+        } catch (Exception e) {
+            System.out.println(String.format("failed to load booking date for %s", ID));
+        }
+        
     }
 
     public String toLine(){
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s", 
-        ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID, numberOfAdults, numberOfKids);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", 
+        ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID, numberOfAdults, numberOfKids, formatter.format(date));
     }
 
     @Override
     public String toString(){
-        return String.format("%s. %s %s %s %s %s Adults:%s Kids:%s %s", 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return String.format("%s. %s %s %s %s %s %s Adults:%s Kids:%s %s", 
             ID, 
             client.name, 
-            client.surname, 
+            client.surname,
+            formatter.format(date),
             chosenEvent, 
             chosenSetMenu.name, 
             decorations,

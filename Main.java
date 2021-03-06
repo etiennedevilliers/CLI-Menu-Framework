@@ -1,4 +1,8 @@
 import implementation.layer.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import business.logic.*;
 import business.logic.AddBooking.BookingStatus;
 import business.logic.EditBookingStatus.UpdateBookingStatus;
@@ -50,19 +54,26 @@ public class Main {
         menu.presentOnce();
     }
 
+
     public static void ClientMenu(Client client) {
         Menu menu = new Menu(String.format("Select action %s: ", client.name));
 
-        for (Booking b : bookings.getBookingsForClient(client)) {
-            if (b.status == BookingStatus.Unconfirmed) {
-                menu.add(new MakePayment(b));
-            }
-        }
+        
+        menu.presentDynamic(() -> {
+            List<MenuItem> menuItems = new ArrayList<MenuItem>();
 
-        menu.add(new ViewBookings(bookings.getBookingsForClient(client)));
-        menu.add(new AddBooking(bookings, setMenuCollection, client));
-        menu.add(new ReturnItem());
-        menu.present();
+            for (Booking b : bookings.getBookingsForClient(client)) {
+                if (b.status == BookingStatus.Unconfirmed) {
+                    menuItems.add(new MakePayment(b));
+                }
+            }
+    
+            menuItems.add(new ViewBookings(bookings.getBookingsForClient(client)));
+            menuItems.add(new AddBooking(bookings, setMenuCollection, client));
+            menuItems.add(new ReturnItem());
+
+            return menuItems;
+        });
 
         BookingCollectionFactory.outputToFile(bookings);
     }

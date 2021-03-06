@@ -1,4 +1,7 @@
 package business.extra;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 import business.logic.AddBooking.EventType;
@@ -26,6 +29,24 @@ public class Helper {
         Scanner sc = new Scanner(System.in);
         System.out.print(q);
         return Float.parseFloat(sc.nextLine());
+    }
+
+    public static Date getDateFromUser(String q) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        while (true) {
+            try {
+                @SuppressWarnings("resource")
+                Scanner sc = new Scanner(System.in); 
+                System.out.print(q);
+                System.out.print("[dd/MM/yyyy]: ");
+
+                String dateString = sc.nextLine();
+
+                return formatter.parse(dateString);
+            } catch (Exception e) {
+                System.out.println("Invalid format. Try again.");
+            }
+        }
     }
 
     @SuppressWarnings({"resource"}) 

@@ -1,6 +1,9 @@
 package implementation.layer;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 import implementation.layer.MenuItem.MenuItemReturnValue;
 
@@ -28,6 +31,8 @@ public class Menu extends ArrayList<MenuItem> {
         }
     }
 
+    
+
 
     /**
      * Present the menu to the user
@@ -45,6 +50,21 @@ public class Menu extends ArrayList<MenuItem> {
         while (returnValue == MenuItemReturnValue.CONTINUE);
 
         return returnValue;
+    }
+
+    public MenuItemReturnValue presentDynamic(Supplier<List<MenuItem>> getMenu) {
+        MenuItemReturnValue returnValue;
+
+        do {
+            this.clear();
+            getMenu.get().forEach((MenuItem m) -> {
+                this.add(m);
+            });
+            
+            returnValue = presentOnce();
+        } while (returnValue == MenuItemReturnValue.CONTINUE);
+
+        return MenuItemReturnValue.BACK;
     }
 
     public MenuItemReturnValue presentOnce() {
