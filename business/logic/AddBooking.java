@@ -64,7 +64,20 @@ public class AddBooking extends MenuItem{
 
         String venue = Helper.getStringFromUser("Please Enter the venue for the event: ");
 
-        Date date = Helper.getDateFromUser("Event date: ");
+        Date date;
+        Boolean dateOK = true;
+
+        do {
+            date = Helper.getDateFromUser("Event date: ");
+
+            for (Booking b : bookingCollection) {
+                if (b.date.equals(date)) {
+                    dateOK = false;
+                    System.out.println("This date has been taken");
+                }
+            }
+
+        } while (!dateOK);
 
         this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client, numberOfAdults, numberOfKids, date, venue));
         BookingCollectionFactory.outputToFile(bookingCollection);
