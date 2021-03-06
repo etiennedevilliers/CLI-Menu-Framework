@@ -15,9 +15,10 @@ public class Booking {
     public Client client;
     public int numberOfAdults;
     public int numberOfKids;
+    public String venue;
     public Date date;
 
-    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client, int numberOfAdults, int numberOfKids, Date date){
+    public Booking(int ID, EventType chosenEvent, SetMenu chosenSetMenu, String decorations, Client client, int numberOfAdults, int numberOfKids, Date date, String venue){
         this.ID = ID;
         this.chosenEvent = chosenEvent;
         this.chosenSetMenu = chosenSetMenu;
@@ -27,6 +28,7 @@ public class Booking {
         this.numberOfAdults = numberOfAdults;
         this.numberOfKids = numberOfKids;
         this.date = date;
+        this.venue = venue;
     }
 
     public Booking(String line, SetMenuCollection setMenuCollection, ClientCollection clientCollection) {
@@ -58,19 +60,21 @@ public class Booking {
         } catch (Exception e) {
             System.out.println(String.format("failed to load booking date for %s", ID));
         }
+
+        this.venue = items[9];
         
     }
 
     public String toLine(){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", 
-        ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID, numberOfAdults, numberOfKids, formatter.format(date));
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", 
+        ID, chosenEvent.ordinal(), chosenSetMenu.ID, decorations, status.ordinal(), client.ID, numberOfAdults, numberOfKids, formatter.format(date), venue);
     }
 
     @Override
     public String toString(){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        return String.format("%s. %s %s %s %s %s %s Adults:%s Kids:%s %s", 
+        return String.format("%s. %s %s %s %s %s %s Adults:%s Kids:%s %s %s", 
             ID, 
             client.name, 
             client.surname,
@@ -80,7 +84,8 @@ public class Booking {
             decorations,
             numberOfAdults, 
             numberOfKids, 
-            status    
+            status,
+            venue
         );
 
     }
