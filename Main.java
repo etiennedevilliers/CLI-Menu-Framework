@@ -33,6 +33,7 @@ public class Main {
         adminMenu.add(new ViewSetMenus(setMenuCollection));
         adminMenu.add(new CreateSetMenu(setMenuCollection, meals));
         adminMenu.add(new EditSetMenu(setMenuCollection, meals));
+        adminMenu.add(new UpdateBookingStatuses(bookings));
         adminMenu.add(new ReturnItem());
 
         Menu mainMenu = new Menu("Main menu");

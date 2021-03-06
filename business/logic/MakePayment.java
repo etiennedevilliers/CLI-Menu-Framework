@@ -61,8 +61,8 @@ public class MakePayment extends MenuItem {
 
         @Override
         public MenuItemReturnValue selected() {
-            booking.status = BookingStatus.Confirmed;
-            System.out.println("Payment recieved and booking confirmed!");
+            booking.status = BookingStatus.PayedFor;
+            System.out.println("Payment Confirm.");
             return MenuItemReturnValue.BACK;
         }
     }

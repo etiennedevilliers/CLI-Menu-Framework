@@ -24,7 +24,8 @@ public class AddBooking extends MenuItem{
     public enum BookingStatus{
         Confirmed, 
         Unconfirmed,
-        Cancelled
+        Cancelled,
+        PayedFor
     }
     
     BookingCollection bookingCollection;
