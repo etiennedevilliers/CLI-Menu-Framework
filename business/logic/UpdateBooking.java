@@ -1,6 +1,7 @@
 package business.logic;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import business.extra.*;
 import data.layer.Booking;
@@ -56,7 +57,25 @@ public class UpdateBooking extends MenuItem {
             }));
 
             menuItems.add(new RMenuItem(String.format("Date [%s]", booking.date), () -> {
-                booking.date = Helper.getDateFromUser("Event date: ");
+                
+                Date date;
+                Boolean dateOK;
+        
+                do {
+                    dateOK = true;
+                    date = Helper.getDateFromUser("Event date: ");
+        
+                    for (Booking b : bookingCollection) {
+                        if (b.date.equals(date)) {
+                            dateOK = false;
+                            System.out.println("This date has been taken");
+                        }
+                    }
+        
+                } while (!dateOK);
+        
+
+                booking.date = date;
             }));
 
             menuItems.add(new ReturnItem());

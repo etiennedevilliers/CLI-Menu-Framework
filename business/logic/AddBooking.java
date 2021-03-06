@@ -65,9 +65,10 @@ public class AddBooking extends MenuItem{
         String venue = Helper.getStringFromUser("Please Enter the venue for the event: ");
 
         Date date;
-        Boolean dateOK = true;
+        Boolean dateOK;
 
         do {
+            dateOK = true;
             date = Helper.getDateFromUser("Event date: ");
 
             for (Booking b : bookingCollection) {
