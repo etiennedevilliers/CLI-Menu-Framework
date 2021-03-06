@@ -64,6 +64,7 @@ public class Main {
             for (Booking b : bookings.getBookingsForClient(client)) {
                 if (b.status == BookingStatus.Unconfirmed) {
                     menuItems.add(new MakePayment(b));
+                    menuItems.add(new UpdateBooking(b, setMenuCollection, bookings));
                 }
             }
     
