@@ -1,8 +1,12 @@
 package business.logic;
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import business.logic.AddBooking.BookingStatus;
 import data.layer.Booking;
 import implementation.layer.*;
+import business.extra.*;
 
 public class MakePayment extends MenuItem {
     private Booking booking;
@@ -13,6 +17,14 @@ public class MakePayment extends MenuItem {
 
     @Override
     public MenuItemReturnValue selected() {
+        Date today = java.util.Calendar.getInstance().getTime();
+        long daysBetween = Helper.getDateDiff(today, booking.date, TimeUnit.DAYS);
+
+        if (daysBetween < 15) {
+            System.out.println("Unfortunatly this bookig cannot be confirmed because it is <15 days from now.");
+            return MenuItemReturnValue.CONTINUE;
+        }
+
         if (booking.status == BookingStatus.Confirmed) {
             System.out.println("This booking has already been confirmed and payed for");
             return MenuItemReturnValue.BACK;

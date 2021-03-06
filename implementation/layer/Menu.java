@@ -52,6 +52,11 @@ public class Menu extends ArrayList<MenuItem> {
         return returnValue;
     }
 
+    /**
+     * Regenerate the menu each time the menu is presented. Dynamic menus. WOW
+     * @param getMenu Supplier that will generate a refreshed List<MenuItems>
+     * @return
+     */
     public MenuItemReturnValue presentDynamic(Supplier<List<MenuItem>> getMenu) {
         MenuItemReturnValue returnValue;
 
