@@ -62,9 +62,11 @@ public class AddBooking extends MenuItem{
         int numberOfAdults = Helper.getIntFromUser("Number of Adults: ");
         int numberOfKids = Helper.getIntFromUser("Number of Kids: ");
 
+        String venue = Helper.getStringFromUser("Please Enter the venue for the event: ");
+
         Date date = Helper.getDateFromUser("Event date: ");
 
-        this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client, numberOfAdults, numberOfKids, date));
+        this.bookingCollection.add(new Booking(newID, event, setMenu, deco, client, numberOfAdults, numberOfKids, date, venue));
         BookingCollectionFactory.outputToFile(bookingCollection);
 
         return MenuItemReturnValue.CONTINUE;
